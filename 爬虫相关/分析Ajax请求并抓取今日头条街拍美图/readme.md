@@ -31,7 +31,7 @@
 
 **引入库**
 
-```
+```python
 #coding=gbk
 
 import json,re
@@ -53,7 +53,7 @@ from multiprocessing import Pool
 
 也就是我们在今日头条中输入‘街拍’的过程
 
-```
+```python
 def get_page_index(offset,keyword):
 
     data = {
@@ -93,7 +93,7 @@ data就是获取网页需要的 Query String Parameters
 
 **解析索引页**
 
-```
+```python
 def parse_page_index(html):
     data = json.loads(html)
     if data and 'data' in data.keys():
@@ -113,7 +113,7 @@ data.keys() 获取所有的键值
 
 **请求详情页**
 
-```
+```python
 def get_page_detail(url):
     headers={
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36'
@@ -135,7 +135,7 @@ def get_page_detail(url):
 
 **解析详情页**
 
-```
+```python
 def parse_page_detail(html,url):
     soup = BeautifulSoup(html,'lxml')
     title = soup.select('title')[0].get_text()
@@ -166,7 +166,7 @@ json.loads(result.group(1).replace('\\','')) 将匹配到的URL中的转义字�
 
 config.py配置文件中的内容
 
-```
+```python
 #coding=utf-8
 #链接地址
 MONGO_URL = 'localhost'
@@ -186,7 +186,7 @@ GROUP_END=20
 
 MongoDB的设置
 
-```
+```python
 client = pymongo.MongoClient(MONGO_URL,connect=False) #声明mongo对象
 
 db = client[MONGO_DB] #数据库名称
@@ -203,7 +203,7 @@ def save_to_mongo(result):
 
 **下载/保存 图片**
 
-```
+```python
 def download_image(url):
     print('正在下载',url)
     headers={
@@ -233,7 +233,7 @@ def save_image(content):
 
 **开启多线程抓取**
 
-```
+```python
 def main(offset):
     html = get_page_index(offset,KEYWORDS)
     for url in parse_page_index(html):
