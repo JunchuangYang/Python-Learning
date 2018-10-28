@@ -84,7 +84,7 @@ No matching distribution found for OpenSSL
 
 至此，scrapy startproject quote 命令成功执行
 
-这次通过爬取http://quotes.toscrape.com/这个网站，来使自己对于scrapy有个简单的了解。
+这次通过爬取  [Quotes to Scrape](http://quotes.toscrape.com/)这个网站，来使自己对于scrapy有个简单的了解。
 
 这个网站是一个名言警句的网站，比较简单，好像是官方做出来让学习scrapy爬虫用的。
 
