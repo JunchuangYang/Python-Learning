@@ -120,7 +120,6 @@ spiders目录下的quotes.py为主要的爬虫代码，包括了对页面的请�
 
 2. scrapy提供了response.css这种的css选择器，我们可以根据自己的需求获取我们想要的字段信息
 
-3. scrapy 使用
 
 ```python
 # -*- coding: utf-8 -*-
