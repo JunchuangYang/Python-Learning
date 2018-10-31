@@ -84,7 +84,7 @@ No matching distribution found for OpenSSL
 
 至此，scrapy startproject quote 命令成功执行
 
-这次通过爬取http://quotes.toscrape.com/这个网站，来使自己对于scrapy有个简单的了解。
+这次通过爬取  [Quotes to Scrape](http://quotes.toscrape.com/)这个网站，来使自己对于scrapy有个简单的了解。
 
 这个网站是一个名言警句的网站，比较简单，好像是官方做出来让学习scrapy爬虫用的。
 
@@ -115,9 +115,11 @@ class QuoteItem(scrapy.Item):
 
 spiders目录下的quotes.py为主要的爬虫代码，包括了对页面的请求以及页面的处理。
 
-1. 我们爬取的页面时http://quotes.toscrape.com/，所以parse的response，返回的是这个页面的信息，但是我们这个时候需要的是获取下一页的地址继续访问，这里就用到了yield Request()这种用法，可以把获取到文章的url地址继续传递进来，使函数自己回调自己形成递归，再次进行请求。
+1. 我们爬取的页面是http://quotes.toscrape.com/，
+所以parse的response，返回的是这个页面的信息，但是我们这个时候需要的是获取下一页的地址继续访问，这里就用到了yield Request()这种用法，可以把获取到文章的url地址继续传递进来，使函数自己回调自己形成递归，再次进行请求。
+
 2. scrapy提供了response.css这种的css选择器，我们可以根据自己的需求获取我们想要的字段信息
-3. scrapy 使用
+
 
 ```python
 # -*- coding: utf-8 -*-
